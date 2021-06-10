@@ -7,14 +7,14 @@ def hello_world():
 @app.route('/dojo')
 def dojo():
     return 'Dojo!'
-@app.route('/say/<name>')
+@app.route('/say/<string:name>')
 def hello(name):
     print(name)
-    return "Hello, " + str(name)
-@app.route('/repeat/<num>/<word>')
+    return "Hello, " + name
+@app.route('/repeat/<int:num>/<word>')
 def repeat(num, word):
     print(word)
-    return str(word) * int(num)
+    return word * num
 @app.route('/<path:path>')
 def catch_all(path):
     return 'Sorry!  No response.  Try again.'
